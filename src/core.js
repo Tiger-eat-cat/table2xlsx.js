@@ -52,7 +52,7 @@ var createExcel = function (selector) {
         var sheetHeight = rows.length;
         var sheetWidth = rows[sheetHeight - 1].cells.length;
         var generateRow = function () { return new Array(sheetWidth).fill(false); };
-        var mergeLog = new Array(sheetHeight).map(function () { return generateRow(); });
+        var mergeLog = new Array(sheetHeight).fill(null).map(function () { return generateRow(); });
         rows.forEach(function (row, rowIndex) {
             var y = rowIndex + 1; // 纵坐标
             var x = 1; // 横坐标
