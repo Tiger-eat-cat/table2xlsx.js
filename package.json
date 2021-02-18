@@ -1,26 +1,31 @@
 {
-  "name": "table2xlsx.js",
-  "version": "1.0.0",
-  "description": "A table conversion excel plugin",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tiger-eat-cat/table2xlsx.js.git"
-  },
-  "keywords": [
-    "table",
-    "excel",
-    "xlsx",
-    "table2excel",
-    "table.js"
-  ],
-  "author": "Tiger",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tiger-eat-cat/table2xlsx.js/issues"
-  },
-  "homepage": "https://github.com/Tiger-eat-cat/table2xlsx.js#readme"
+    "name": "table2xlsx.js",
+    "version": "0.1.0",
+    "description": "A table conversion excel plugin",
+    "main": "index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tiger-eat-cat/table2xlsx.js.git"
+    },
+    "keywords": [
+        "table2xlsx.js",
+        "table2xlsx",
+        "table",
+        "excel",
+        "xlsx",
+        "table2excel",
+        "table.js"
+    ],
+    "author": "Tiger",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tiger-eat-cat/table2xlsx.js/issues"
+    },
+    "homepage": "https://github.com/Tiger-eat-cat/table2xlsx.js#readme",
+    "dependencies": {
+        "exceljs": "^4.2.0"
+    }
 }
