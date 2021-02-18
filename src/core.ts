@@ -10,7 +10,7 @@ export const createExcel = (selector: string | HTMLTableElement [] = 'table') =>
         const sheetHeight = rows.length
         const sheetWidth = rows[sheetHeight - 1].cells.length
         const generateRow = (): boolean [] => new Array(sheetWidth).fill(false)
-        const mergeLog: boolean[][] = new Array(sheetHeight).map(() => generateRow())
+        const mergeLog: boolean[][] = new Array(sheetHeight).fill(null).map(() => generateRow())
         rows.forEach((row, rowIndex) => {
             const y = rowIndex + 1 // 纵坐标
             let x = 1 // 横坐标
