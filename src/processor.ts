@@ -24,6 +24,7 @@ export const fontProcessor = (cell: HTMLTableCellElement, sheetCell: Cell, style
 
 export const columnProcessor = (worksheet: Worksheet, from: number, to: number, cellStyle: CSSStyleDeclaration): void => {
     if (from === to && cellStyle.width !== 'auto') {
-        worksheet.getColumn(from + 1).width = parseFloat(cellStyle.width) * 0.14
+        worksheet.getColumn(from).width = parseFloat(cellStyle.width) * 0.14
+        console.log('=======================>', worksheet.getColumn(from))
     }
 }
