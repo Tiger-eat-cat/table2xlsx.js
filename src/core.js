@@ -106,7 +106,8 @@ var createExcel = function (selector) {
                     }
                 });
             });
-        }
+        },
+        workbook: workbook,
     };
 };
 exports.createExcel = createExcel;
