@@ -6,7 +6,7 @@
 ### Example
 ###### npm install table2xlsx.js
 ```
-import { createExcel } from 'table2xlsx.js'
+import createExcel from 'table2xlsx.js'
 
 createExcel('.table-demo').export('filename')
 

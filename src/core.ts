@@ -1,4 +1,5 @@
-import ExcelJS from 'exceljs'
+import ExcelJS, { Cell } from 'exceljs'
+import { fontProcessor, columnProcessor } from './processor'
 
 export const createExcel = (selector: string | HTMLTableElement [] = 'table') => {
     const workbook = new ExcelJS.Workbook()
@@ -29,8 +30,11 @@ export const createExcel = (selector: string | HTMLTableElement [] = 'table') =>
                 const bottom = y + rowSpan - 1 // 结束行
                 const right = x + colSpan - 1 // 结束列
                 worksheet.mergeCells(top, left, bottom, right)
-                const sheetCell = worksheet.getCell(top, left)
+                const sheetCell: Cell = worksheet.getCell(top, left)
                 sheetCell.value = cell.innerText
+                const style: CSSStyleDeclaration = getComputedStyle(cell)
+                fontProcessor(cell, sheetCell, style)
+                columnProcessor(worksheet, left, right, style)
                 for (let i = top - 1; i < bottom; i ++) {
                     for (let j = left - 1; j < right; j++) {
                         mergeLog[i][j] = true

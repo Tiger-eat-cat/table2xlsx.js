@@ -41,6 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createExcel = void 0;
 var exceljs_1 = __importDefault(require("exceljs"));
+var processor_1 = require("./processor");
 var createExcel = function (selector) {
     if (selector === void 0) { selector = 'table'; }
     var workbook = new exceljs_1.default.Workbook();
@@ -73,6 +74,9 @@ var createExcel = function (selector) {
                 worksheet.mergeCells(top, left, bottom, right);
                 var sheetCell = worksheet.getCell(top, left);
                 sheetCell.value = cell.innerText;
+                var style = getComputedStyle(cell);
+                processor_1.fontProcessor(cell, sheetCell, style);
+                processor_1.columnProcessor(worksheet, left, right, style);
                 for (var i = top - 1; i < bottom; i++) {
                     for (var j = left - 1; j < right; j++) {
                         mergeLog[i][j] = true;
