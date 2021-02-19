@@ -1,3 +1,2 @@
-export declare const createExcel: (selector?: string | HTMLTableElement[]) => {
-    export: (filename?: string) => Promise<void>;
-};
+import { Excel } from './types';
+export declare const createExcel: (selector?: string | HTMLTableElement[]) => Excel;

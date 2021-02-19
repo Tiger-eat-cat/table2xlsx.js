@@ -1,7 +1,8 @@
 import ExcelJS, { Cell } from 'exceljs'
 import { fontProcessor, columnProcessor } from './processor'
+import { Excel } from './types'
 
-export const createExcel = (selector: string | HTMLTableElement [] = 'table') => {
+export const createExcel = (selector: string | HTMLTableElement [] = 'table'): Excel => {
     const workbook = new ExcelJS.Workbook()
     const tableElements  = typeof selector === 'string' ? document.querySelectorAll(selector) : selector
     const tables = Array.from(tableElements) as HTMLTableElement[]
@@ -53,6 +54,7 @@ export const createExcel = (selector: string | HTMLTableElement [] = 'table') =>
             a.download = `${filename}.xlsx`
             a.click()
             URL.revokeObjectURL(fileUrl)
-        }
+        },
+        workbook,
     }
 }
