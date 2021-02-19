@@ -9,7 +9,6 @@ export const fontProcessor = (cell: HTMLTableCellElement, sheetCell: Cell): void
     const color: string = rgbToArgb(style.color)
     sheetCell.font = {
         size: parseInt(fontSize),
-        name: style.fontFamily,
         color: { argb: color },
     }
     if (TEXT_ALIGN.some(item => item === textAlign)) {
