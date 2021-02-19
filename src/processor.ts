@@ -23,8 +23,8 @@ export const fontProcessor = (cell: HTMLTableCellElement, sheetCell: Cell, style
 }
 
 export const columnProcessor = (worksheet: Worksheet, from: number, to: number, cellStyle: CSSStyleDeclaration): void => {
+    const CONVERT_RATIO = 0.5
     if (from === to && cellStyle.width !== 'auto') {
-        worksheet.getColumn(from).width = parseFloat(cellStyle.width)
-        console.log('=======================>', worksheet.getColumn(from))
+        worksheet.getColumn(from).width = parseFloat(cellStyle.width) * CONVERT_RATIO
     }
 }
