@@ -79,6 +79,7 @@ var createExcel = function (selector) {
                 processor_1.columnProcessor(worksheet, left, right, style);
                 processor_1.hyperlinkProcessor(cell, sheetCell);
                 processor_1.inputProcessor(cell, sheetCell);
+                processor_1.imgProcessor(cell, sheetCell);
                 for (var i = top - 1; i < bottom; i++) {
                     for (var j = left - 1; j < right; j++) {
                         mergeLog[i][j] = true;
