@@ -1,6 +1,6 @@
-import { Workbook } from 'exceljs'
+import { Buffer, Workbook } from 'exceljs'
 
 export interface Excel {
-    export(filename: string): Promise<unknown>
+    export(filename: string): Promise<Buffer>
     workbook?: Workbook
 }

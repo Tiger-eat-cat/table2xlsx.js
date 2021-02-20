@@ -28,3 +28,21 @@ export const columnProcessor = (worksheet: Worksheet, from: number, to: number, 
         worksheet.getColumn(from).width = parseFloat(cellStyle.width) * CONVERT_RATIO
     }
 }
+
+export const hyperlinkProcessor = (cell: HTMLTableCellElement, sheetCell: Cell) => {
+    const children = cell.children
+    const tagName = children[0]?.tagName.toUpperCase()
+    if (tagName === 'A') {
+        const hyperlink = children[0] as HTMLLinkElement
+        sheetCell.value = { text: cell.innerText, hyperlink: hyperlink.href }
+    }
+}
+
+export const inputProcessor = (cell: HTMLTableCellElement, sheetCell: Cell) => {
+    const children = cell.children
+    const tagName = children[0]?.tagName.toUpperCase()
+    if (tagName === 'INPUT') {
+        const input = children[0] as HTMLInputElement
+        sheetCell.value = input.value
+    }
+}
