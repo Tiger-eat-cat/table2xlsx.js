@@ -1,6 +1,6 @@
 {
     "name": "table2xlsx.js",
-    "version": "0.3.4",
+    "version": "0.3.5-beta",
     "description": "A table conversion excel plugin",
     "main": "index.ts",
     "scripts": {

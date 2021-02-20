@@ -1,5 +1,5 @@
 import ExcelJS, { Cell } from 'exceljs'
-import { fontProcessor, columnProcessor } from './processor'
+import { fontProcessor, columnProcessor, hyperlinkProcessor, inputProcessor } from './processor'
 import { Excel } from './types'
 
 export const createExcel = (selector: string | HTMLTableElement [] = 'table'): Excel => {
@@ -36,6 +36,8 @@ export const createExcel = (selector: string | HTMLTableElement [] = 'table'): E
                 const style: CSSStyleDeclaration = getComputedStyle(cell)
                 fontProcessor(cell, sheetCell, style)
                 columnProcessor(worksheet, left, right, style)
+                hyperlinkProcessor(cell, sheetCell)
+                inputProcessor(cell, sheetCell)
                 for (let i = top - 1; i < bottom; i ++) {
                     for (let j = left - 1; j < right; j++) {
                         mergeLog[i][j] = true
