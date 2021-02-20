@@ -1,6 +1,7 @@
 import { Cell, Worksheet } from 'exceljs'
 import { rgbToArgb } from './tools'
 import { TEXT_ALIGN } from './config'
+import { TagName } from './types'
 
 export const fontProcessor = (cell: HTMLTableCellElement, sheetCell: Cell, style: CSSStyleDeclaration): void => {
     const fontSize: string = style.fontSize
@@ -29,20 +30,29 @@ export const columnProcessor = (worksheet: Worksheet, from: number, to: number, 
     }
 }
 
-export const hyperlinkProcessor = (cell: HTMLTableCellElement, sheetCell: Cell) => {
+export const hyperlinkProcessor = (cell: HTMLTableCellElement, sheetCell: Cell): void => {
     const children = cell.children
     const tagName = children[0]?.tagName.toUpperCase()
-    if (tagName === 'A') {
+    if (tagName === TagName.hyperlink) {
         const hyperlink = children[0] as HTMLLinkElement
         sheetCell.value = { text: cell.innerText, hyperlink: hyperlink.href }
     }
 }
 
-export const inputProcessor = (cell: HTMLTableCellElement, sheetCell: Cell) => {
+export const inputProcessor = (cell: HTMLTableCellElement, sheetCell: Cell): void => {
     const children = cell.children
     const tagName = children[0]?.tagName.toUpperCase()
-    if (tagName === 'INPUT') {
+    if (tagName === TagName.input) {
         const input = children[0] as HTMLInputElement
         sheetCell.value = input.value
+    }
+}
+
+export const imgProcessor = (cell: HTMLTableCellElement, sheetCell: Cell): void => {
+    const children = cell.children
+    const tagName = children[0]?.tagName.toUpperCase()
+    if (tagName === TagName.img) {
+        const img = children[0] as HTMLImageElement
+        sheetCell.value = { text: img.src, hyperlink: img.src }
     }
 }

@@ -1,5 +1,5 @@
 import ExcelJS, { Cell } from 'exceljs'
-import { fontProcessor, columnProcessor, hyperlinkProcessor, inputProcessor } from './processor'
+import { fontProcessor, columnProcessor, hyperlinkProcessor, inputProcessor, imgProcessor } from './processor'
 import { Excel } from './types'
 
 export const createExcel = (selector: string | HTMLTableElement [] = 'table'): Excel => {
@@ -38,6 +38,7 @@ export const createExcel = (selector: string | HTMLTableElement [] = 'table'): E
                 columnProcessor(worksheet, left, right, style)
                 hyperlinkProcessor(cell, sheetCell)
                 inputProcessor(cell, sheetCell)
+                imgProcessor(cell, sheetCell)
                 for (let i = top - 1; i < bottom; i ++) {
                     for (let j = left - 1; j < right; j++) {
                         mergeLog[i][j] = true
